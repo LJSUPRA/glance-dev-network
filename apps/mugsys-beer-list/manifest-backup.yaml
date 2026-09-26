@@ -1,0 +1,112 @@
+
+# Mugsy's Beer List
+gdn: 1
+id: mugsys-beer-list
+version: 0.1.0
+name: Mugsy's Beer List
+author: Mugsy's
+description: Rotating digital tap list for Mugsy's.
+entry: app.star
+
+width: 192
+height: 32
+refresh: 300
+
+pages: [beer1, beer2, beer3, beer4]
+
+inputs:
+  - key: beer1name
+    type: string
+    app_input_type: free-text
+    label: Beer 1 Name
+    default: "BEER ONE"
+
+  - key: beer1style
+    type: string
+    app_input_type: free-text
+    label: Beer 1 Style
+    default: "STYLE"
+
+  - key: beer1abv
+    type: string
+    app_input_type: free-text
+    label: Beer 1 ABV
+    default: "5.0%"
+
+  - key: beer1price
+    type: string
+    app_input_type: free-text
+    label: Beer 1 Pint Price
+    default: "$5.00"
+
+  - key: beer2name
+    type: string
+    app_input_type: free-text
+    label: Beer 2 Name
+    default: "BEER TWO"
+
+  - key: beer2style
+    type: string
+    app_input_type: free-text
+    label: Beer 2 Style
+    default: "STYLE"
+
+  - key: beer2abv
+    type: string
+    app_input_type: free-text
+    label: Beer 2 ABV
+    default: "5.0%"
+
+  - key: beer2price
+    type: string
+    app_input_type: free-text
+    label: Beer 2 Pint Price
+    default: "$5.00"
+
+  - key: beer3name
+    type: string
+    app_input_type: free-text
+    label: Beer 3 Name
+    default: "BEER THREE"
+
+  - key: beer3style
+    type: string
+    app_input_type: free-text
+    label: Beer 3 Style
+    default: "STYLE"
+
+  - key: beer3abv
+    type: string
+    app_input_type: free-text
+    label: Beer 3 ABV
+    default: "5.0%"
+
+  - key: beer3price
+    type: string
+    app_input_type: free-text
+    label: Beer 3 Pint Price
+    default: "$5.00"
+
+  - key: beer4name
+    type: string
+    app_input_type: free-text
+    label: Beer 4 Name
+    default: "BEER FOUR"
+
+  - key: beer4style
+    type: string
+    app_input_type: free-text
+    label: Beer 4 Style
+    default: "STYLE"
+
+  - key: beer4abv
+    type: string
+    app_input_type: free-text
+    label: Beer 4 ABV
+    default: "5.0%"
+
+  - key: beer4price
+    type: string
+    app_input_type: free-text
+    label: Beer 4 Pint Price
+    default: "$5.00"

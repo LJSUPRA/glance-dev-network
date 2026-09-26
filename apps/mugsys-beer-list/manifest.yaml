@@ -1,0 +1,465 @@
+gdn: 1
+
+id: mugsys-beer-list
+version: 0.3.0
+name: Mugsy's Pub and Patio Tap List
+author: Mugsy's Pub and Patio
+description: Rotating digital tap list for Mugsy's Pub and Patio.
+entry: app.star
+
+width: 384
+height: 32
+refresh: 300
+
+pages:
+  - page1
+  - page2
+  - page3
+  - page4
+  - page5
+  - page6
+  - page7
+  - page8
+  - page9
+  - page10
+  - page11
+  - page12
+
+inputs:
+
+  # TAP 1
+  - key: tap1name
+    type: string
+    app_input_type: free-text
+    label: Tap 1 - Beer Name
+    default: "BUD LIGHT"
+
+  - key: tap1style
+    type: string
+    app_input_type: free-text
+    label: Tap 1 - Style
+    default: "LIGHT LAGER"
+
+  - key: tap1abv
+    type: string
+    app_input_type: free-text
+    label: Tap 1 - ABV
+    default: "4.2%"
+
+  # TAP 2
+  - key: tap2name
+    type: string
+    app_input_type: free-text
+    label: Tap 2 - Beer Name
+    default: "MODELO ESPECIAL"
+
+  - key: tap2style
+    type: string
+    app_input_type: free-text
+    label: Tap 2 - Style
+    default: "MEXICAN LAGER"
+
+  - key: tap2abv
+    type: string
+    app_input_type: free-text
+    label: Tap 2 - ABV
+    default: "4.4%"
+
+  # TAP 3
+  - key: tap3name
+    type: string
+    app_input_type: free-text
+    label: Tap 3 - Beer Name
+    default: "CORONA PREMIER"
+
+  - key: tap3style
+    type: string
+    app_input_type: free-text
+    label: Tap 3 - Style
+    default: "LIGHT LAGER"
+
+  - key: tap3abv
+    type: string
+    app_input_type: free-text
+    label: Tap 3 - ABV
+    default: "4.0%"
+
+  # TAP 4
+  - key: tap4name
+    type: string
+    app_input_type: free-text
+    label: Tap 4 - Beer Name
+    default: "MICHELOB ULTRA"
+
+  - key: tap4style
+    type: string
+    app_input_type: free-text
+    label: Tap 4 - Style
+    default: "LIGHT LAGER"
+
+  - key: tap4abv
+    type: string
+    app_input_type: free-text
+    label: Tap 4 - ABV
+    default: "4.2%"
+
+  # TAP 5
+  - key: tap5name
+    type: string
+    app_input_type: free-text
+    label: Tap 5 - Beer Name
+    default: "YUENGLING LAGER"
+
+  - key: tap5style
+    type: string
+    app_input_type: free-text
+    label: Tap 5 - Style
+    default: "TRADITIONAL LAGER"
+
+  - key: tap5abv
+    type: string
+    app_input_type: free-text
+    label: Tap 5 - ABV
+    default: "4.5%"
+
+  # TAP 6
+  - key: tap6name
+    type: string
+    app_input_type: free-text
+    label: Tap 6 - Beer Name
+    default: "MILLER LITE"
+
+  - key: tap6style
+    type: string
+    app_input_type: free-text
+    label: Tap 6 - Style
+    default: "LIGHT LAGER"
+
+  - key: tap6abv
+    type: string
+    app_input_type: free-text
+    label: Tap 6 - ABV
+    default: "4.2%"
+
+  # TAP 7
+  - key: tap7name
+    type: string
+    app_input_type: free-text
+    label: Tap 7 - Beer Name
+    default: "GOOSE ISLAND IPA"
+
+  - key: tap7style
+    type: string
+    app_input_type: free-text
+    label: Tap 7 - Style
+    default: "IPA"
+
+  - key: tap7abv
+    type: string
+    app_input_type: free-text
+    label: Tap 7 - ABV
+    default: "5.9%"
+
+  # TAP 8
+  - key: tap8name
+    type: string
+    app_input_type: free-text
+    label: Tap 8 - Beer Name
+    default: "OH, SURF"
+
+  - key: tap8style
+    type: string
+    app_input_type: free-text
+    label: Tap 8 - Style
+    default: "LAND-GRANT"
+
+  - key: tap8abv
+    type: string
+    app_input_type: free-text
+    label: Tap 8 - ABV
+    default: "TBD"
+
+  # TAP 9
+  - key: tap9name
+    type: string
+    app_input_type: free-text
+    label: Tap 9 - Beer Name
+    default: "L.G. MUGSY LIGHT"
+
+  - key: tap9style
+    type: string
+    app_input_type: free-text
+    label: Tap 9 - Style
+    default: "LAND-GRANT"
+
+  - key: tap9abv
+    type: string
+    app_input_type: free-text
+    label: Tap 9 - ABV
+    default: "TBD"
+
+  # TAP 10
+  - key: tap10name
+    type: string
+    app_input_type: free-text
+    label: Tap 10 - Beer Name
+    default: "L.G. ALL WELCOME"
+
+  - key: tap10style
+    type: string
+    app_input_type: free-text
+    label: Tap 10 - Style
+    default: "LAND-GRANT"
+
+  - key: tap10abv
+    type: string
+    app_input_type: free-text
+    label: Tap 10 - ABV
+    default: "TBD"
+
+  # TAP 11
+  - key: tap11name
+    type: string
+    app_input_type: free-text
+    label: Tap 11 - Beer Name
+    default: "BLUE MOON"
+
+  - key: tap11style
+    type: string
+    app_input_type: free-text
+    label: Tap 11 - Style
+    default: "BELGIAN WHITE"
+
+  - key: tap11abv
+    type: string
+    app_input_type: free-text
+    label: Tap 11 - ABV
+    default: "5.4%"
+
+  # TAP 12
+  - key: tap12name
+    type: string
+    app_input_type: free-text
+    label: Tap 12 - Beer Name
+    default: "GUINNESS"
+
+  - key: tap12style
+    type: string
+    app_input_type: free-text
+    label: Tap 12 - Style
+    default: "IRISH STOUT"
+
+  - key: tap12abv
+    type: string
+    app_input_type: free-text
+    label: Tap 12 - ABV
+    default: "4.2%"
+
+  # TAP 13
+  - key: tap13name
+    type: string
+    app_input_type: free-text
+    label: Tap 13 - Beer Name
+    default: "SUMMER SHANDY"
+
+  - key: tap13style
+    type: string
+    app_input_type: free-text
+    label: Tap 13 - Style
+    default: "LEINENKUGEL'S"
+
+  - key: tap13abv
+    type: string
+    app_input_type: free-text
+    label: Tap 13 - ABV
+    default: "4.2%"
+
+  # TAP 14
+  - key: tap14name
+    type: string
+    app_input_type: free-text
+    label: Tap 14 - Beer Name
+    default: "RHINEGEIST TRUTH"
+
+  - key: tap14style
+    type: string
+    app_input_type: free-text
+    label: Tap 14 - Style
+    default: "IPA"
+
+  - key: tap14abv
+    type: string
+    app_input_type: free-text
+    label: Tap 14 - ABV
+    default: "7.2%"
+
+  # TAP 15
+  - key: tap15name
+    type: string
+    app_input_type: free-text
+    label: Tap 15 - Beer Name
+    default: "CBC IPA"
+
+  - key: tap15style
+    type: string
+    app_input_type: free-text
+    label: Tap 15 - Style
+    default: "COLUMBUS BREWING"
+
+  - key: tap15abv
+    type: string
+    app_input_type: free-text
+    label: Tap 15 - ABV
+    default: "6.3%"
+
+  # TAP 16
+  - key: tap16name
+    type: string
+    app_input_type: free-text
+    label: Tap 16 - Beer Name
+    default: "COORS LIGHT"
+
+  - key: tap16style
+    type: string
+    app_input_type: free-text
+    label: Tap 16 - Style
+    default: "LIGHT LAGER"
+
+  - key: tap16abv
+    type: string
+    app_input_type: free-text
+    label: Tap 16 - ABV
+    default: "4.2%"
+
+  # TAP 17
+  - key: tap17name
+    type: string
+    app_input_type: free-text
+    label: Tap 17 - Beer Name
+    default: "DOWNEAST CIDER"
+
+  - key: tap17style
+    type: string
+    app_input_type: free-text
+    label: Tap 17 - Style
+    default: "ORIGINAL BLEND"
+
+  - key: tap17abv
+    type: string
+    app_input_type: free-text
+    label: Tap 17 - ABV
+    default: "5.1%"
+
+  # TAP 18
+  - key: tap18name
+    type: string
+    app_input_type: free-text
+    label: Tap 18 - Beer Name
+    default: "PACIFICO"
+
+  - key: tap18style
+    type: string
+    app_input_type: free-text
+    label: Tap 18 - Style
+    default: "MEXICAN LAGER"
+
+  - key: tap18abv
+    type: string
+    app_input_type: free-text
+    label: Tap 18 - ABV
+    default: "4.4%"
+
+  # TAP 19
+  - key: tap19name
+    type: string
+    app_input_type: free-text
+    label: Tap 19 - Beer Name
+    default: "AVAILABLE TAP"
+
+  - key: tap19style
+    type: string
+    app_input_type: free-text
+    label: Tap 19 - Style
+    default: ""
+
+  - key: tap19abv
+    type: string
+    app_input_type: free-text
+    label: Tap 19 - ABV
+    default: ""
+
+  # TAP 20
+  - key: tap20name
+    type: string
+    app_input_type: free-text
+    label: Tap 20 - Beer Name
+    default: "AVAILABLE TAP"
+
+  - key: tap20style
+    type: string
+    app_input_type: free-text
+    label: Tap 20 - Style
+    default: ""
+
+  - key: tap20abv
+    type: string
+    app_input_type: free-text
+    label: Tap 20 - ABV
+    default: ""
+
+  # TAP 21
+  - key: tap21name
+    type: string
+    app_input_type: free-text
+    label: Tap 21 - Beer Name
+    default: "AVAILABLE TAP"
+
+  - key: tap21style
+    type: string
+    app_input_type: free-text
+    label: Tap 21 - Style
+    default: ""
+
+  - key: tap21abv
+    type: string
+    app_input_type: free-text
+    label: Tap 21 - ABV
+    default: ""
+
+  # TAP 22
+  - key: tap22name
+    type: string
+    app_input_type: free-text
+    label: Tap 22 - Beer Name
+    default: "AVAILABLE TAP"
+
+  - key: tap22style
+    type: string
+    app_input_type: free-text
+    label: Tap 22 - Style
+    default: ""
+
+  - key: tap22abv
+    type: string
+    app_input_type: free-text
+    label: Tap 22 - ABV
+    default: ""
+
+  # TAP 23
+  - key: tap23name
+    type: string
+    app_input_type: free-text
+    label: Tap 23 - Beer Name
+    default: "AVAILABLE TAP"
+
+  - key: tap23style
+    type: string
+    app_input_type: free-text
+    label: Tap 23 - Style
+    default: ""
+
+  - key: tap23abv
+    type: string
+    app_input_type: free-text
+    label: Tap 23 - ABV
+    default: ""
