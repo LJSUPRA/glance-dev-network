@@ -1,8 +1,33 @@
 # Mugsy's Pub and Patio
-# Scroll Pro layout
+# GLANCE Scroll Pro - 384 x 32
 # 23 taps
-# Two beers per page
-# 384 x 32 display
+# One phone input per tap:
+# BEER NAME | STYLE / BREWERY | ABV
+
+
+def parse_tap(value):
+    value = value.strip()
+
+    if value == "" or value.upper() == "AVAILABLE TAP":
+        return ["AVAILABLE TAP", "", ""]
+
+    parts = value.split("|")
+
+    name = ""
+    style = ""
+    abv = ""
+
+    if len(parts) > 0:
+        name = parts[0].strip()
+
+    if len(parts) > 1:
+        style = parts[1].strip()
+
+    if len(parts) > 2:
+        abv = parts[2].strip()
+
+    return [name, style, abv]
+
 
 def draw_banner(c):
     c.rect(0, 0, c.width - 1, 8, fill = "green")
@@ -17,15 +42,14 @@ def draw_banner(c):
     )
 
 
-def draw_beer(c, x0, name, style, abv):
-    name = name.upper()
-    style = style.upper()
-    abv = abv.upper()
+def draw_beer(c, x0, beer):
+    name = beer[0].upper()
+    style = beer[1].upper()
+    abv = beer[2].upper()
 
     left_x = x0 + 8
     abv_x = x0 + 182
 
-    # Empty tap
     if name == "" or name == "AVAILABLE TAP":
         c.text(
             "AVAILABLE TAP",
@@ -44,10 +68,9 @@ def draw_beer(c, x0, name, style, abv):
             color = "gray",
             align = "center"
         )
+
         return
 
-    # Beer name
-    # Bigger display font
     c.text(
         name,
         left_x,
@@ -56,7 +79,6 @@ def draw_beer(c, x0, name, style, abv):
         color = "white"
     )
 
-    # Bottom line: style + ABV
     if style != "":
         c.text(
             style,
@@ -79,212 +101,229 @@ def draw_beer(c, x0, name, style, abv):
 
 def draw_page(c, left, right):
     c.fill("black")
+
     draw_banner(c)
 
-    # Center divider starts below the header
-    c.rect(191, 9, 192, 30, fill = "green")
-
-    draw_beer(
-        c,
-        0,
-        left[0],
-        left[1],
-        left[2]
+    c.rect(
+        191,
+        9,
+        192,
+        30,
+        fill = "green"
     )
 
+    draw_beer(c, 0, left)
+
     if right != None:
-        draw_beer(
-            c,
-            192,
-            right[0],
-            right[1],
-            right[2]
-        )
+        draw_beer(c, 192, right)
 
 
 def page1(c, ctx):
-    left = [
-        ctx.inputs.get("tap1name", "BUD LIGHT"),
-        ctx.inputs.get("tap1style", "LIGHT LAGER"),
-        ctx.inputs.get("tap1abv", "4.2%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap1",
+            "BUD LIGHT | LIGHT LAGER | 4.2%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap2name", "MODELO ESPECIAL"),
-        ctx.inputs.get("tap2style", "MEXICAN LAGER"),
-        ctx.inputs.get("tap2abv", "4.4%"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap2",
+            "MODELO ESPECIAL | MEXICAN LAGER | 4.4%"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page2(c, ctx):
-    left = [
-        ctx.inputs.get("tap3name", "CORONA PREMIER"),
-        ctx.inputs.get("tap3style", "LIGHT LAGER"),
-        ctx.inputs.get("tap3abv", "4.0%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap3",
+            "CORONA PREMIER | LIGHT LAGER | 4.0%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap4name", "MICHELOB ULTRA"),
-        ctx.inputs.get("tap4style", "LIGHT LAGER"),
-        ctx.inputs.get("tap4abv", "4.2%"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap4",
+            "MICHELOB ULTRA | LIGHT LAGER | 4.2%"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page3(c, ctx):
-    left = [
-        ctx.inputs.get("tap5name", "YUENGLING LAGER"),
-        ctx.inputs.get("tap5style", "TRADITIONAL LAGER"),
-        ctx.inputs.get("tap5abv", "4.5%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap5",
+            "YUENGLING LAGER | TRADITIONAL LAGER | 4.5%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap6name", "MILLER LITE"),
-        ctx.inputs.get("tap6style", "LIGHT LAGER"),
-        ctx.inputs.get("tap6abv", "4.2%"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap6",
+            "MILLER LITE | LIGHT LAGER | 4.2%"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page4(c, ctx):
-    left = [
-        ctx.inputs.get("tap7name", "GOOSE ISLAND IPA"),
-        ctx.inputs.get("tap7style", "IPA"),
-        ctx.inputs.get("tap7abv", "5.9%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap7",
+            "GOOSE ISLAND IPA | IPA | 5.9%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap8name", "OH, SURF"),
-        ctx.inputs.get("tap8style", "LAND-GRANT"),
-        ctx.inputs.get("tap8abv", "TBD"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap8",
+            "OH, SURF | LAND-GRANT | TBD"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page5(c, ctx):
-    left = [
-        ctx.inputs.get("tap9name", "L.G. MUGSY LIGHT"),
-        ctx.inputs.get("tap9style", "LAND-GRANT"),
-        ctx.inputs.get("tap9abv", "TBD"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap9",
+            "L.G. MUGSY LIGHT | LAND-GRANT | TBD"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap10name", "L.G. ALL WELCOME"),
-        ctx.inputs.get("tap10style", "LAND-GRANT"),
-        ctx.inputs.get("tap10abv", "TBD"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap10",
+            "L.G. ALL WELCOME | LAND-GRANT | TBD"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page6(c, ctx):
-    left = [
-        ctx.inputs.get("tap11name", "BLUE MOON"),
-        ctx.inputs.get("tap11style", "BELGIAN WHITE"),
-        ctx.inputs.get("tap11abv", "5.4%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap11",
+            "BLUE MOON | BELGIAN WHITE | 5.4%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap12name", "GUINNESS"),
-        ctx.inputs.get("tap12style", "IRISH STOUT"),
-        ctx.inputs.get("tap12abv", "4.2%"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap12",
+            "GUINNESS | IRISH STOUT | 4.2%"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page7(c, ctx):
-    left = [
-        ctx.inputs.get("tap13name", "SUMMER SHANDY"),
-        ctx.inputs.get("tap13style", "LEINENKUGEL'S"),
-        ctx.inputs.get("tap13abv", "4.2%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap13",
+            "SUMMER SHANDY | LEINENKUGEL'S | 4.2%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap14name", "RHINEGEIST TRUTH"),
-        ctx.inputs.get("tap14style", "IPA"),
-        ctx.inputs.get("tap14abv", "7.2%"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap14",
+            "RHINEGEIST TRUTH | IPA | 7.2%"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page8(c, ctx):
-    left = [
-        ctx.inputs.get("tap15name", "CBC IPA"),
-        ctx.inputs.get("tap15style", "COLUMBUS BREWING"),
-        ctx.inputs.get("tap15abv", "6.3%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap15",
+            "CBC IPA | COLUMBUS BREWING | 6.3%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap16name", "COORS LIGHT"),
-        ctx.inputs.get("tap16style", "LIGHT LAGER"),
-        ctx.inputs.get("tap16abv", "4.2%"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap16",
+            "COORS LIGHT | LIGHT LAGER | 4.2%"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page9(c, ctx):
-    left = [
-        ctx.inputs.get("tap17name", "DOWNEAST CIDER"),
-        ctx.inputs.get("tap17style", "ORIGINAL BLEND"),
-        ctx.inputs.get("tap17abv", "5.1%"),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap17",
+            "DOWNEAST CIDER | ORIGINAL BLEND | 5.1%"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap18name", "PACIFICO"),
-        ctx.inputs.get("tap18style", "MEXICAN LAGER"),
-        ctx.inputs.get("tap18abv", "4.4%"),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap18",
+            "PACIFICO | MEXICAN LAGER | 4.4%"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page10(c, ctx):
-    left = [
-        ctx.inputs.get("tap19name", "AVAILABLE TAP"),
-        ctx.inputs.get("tap19style", ""),
-        ctx.inputs.get("tap19abv", ""),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap19",
+            "AVAILABLE TAP"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap20name", "AVAILABLE TAP"),
-        ctx.inputs.get("tap20style", ""),
-        ctx.inputs.get("tap20abv", ""),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap20",
+            "AVAILABLE TAP"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page11(c, ctx):
-    left = [
-        ctx.inputs.get("tap21name", "AVAILABLE TAP"),
-        ctx.inputs.get("tap21style", ""),
-        ctx.inputs.get("tap21abv", ""),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap21",
+            "AVAILABLE TAP"
+        )
+    )
 
-    right = [
-        ctx.inputs.get("tap22name", "AVAILABLE TAP"),
-        ctx.inputs.get("tap22style", ""),
-        ctx.inputs.get("tap22abv", ""),
-    ]
+    right = parse_tap(
+        ctx.inputs.get(
+            "tap22",
+            "AVAILABLE TAP"
+        )
+    )
 
     draw_page(c, left, right)
 
 
 def page12(c, ctx):
-    left = [
-        ctx.inputs.get("tap23name", "AVAILABLE TAP"),
-        ctx.inputs.get("tap23style", ""),
-        ctx.inputs.get("tap23abv", ""),
-    ]
+    left = parse_tap(
+        ctx.inputs.get(
+            "tap23",
+            "AVAILABLE TAP"
+        )
+    )
 
-    right = ["", "", ""]
+    right = None
 
     draw_page(c, left, right)
